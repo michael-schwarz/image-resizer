@@ -1,5 +1,6 @@
-﻿// programs.xe.cx Bildverkleinerer: Resizes images
-// Copyright (C) 2010  Michael Schwarz
+﻿// mbscWare Image Resizer: Resizes images
+// German version called "mbscWare Bildverkleinerer"
+// Copyright (C) 2010-2012  Michael Schwarz
 // 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -225,7 +226,6 @@ namespace resizer
 		
 				if(this.percent.Checked)
 					{
-	
 						double p = Convert.ToDouble(this.percent_input.Text);
 						imgResize.resize(i,o,p/100,f);
 					}
@@ -327,7 +327,7 @@ namespace resizer
 		{
 			if(include_subdirs.Checked)
 				{
-					//It's important to do this before starting to resize directories, because otherwise the resizer will resize
+					//It's important to do this before starting to resize the folder's contents, because otherwise the resizer will resize
 					//images in an endless loop (if create_new_subdir is enabled) because it will find it's own output folder
 					string[] dirs = Directory.GetDirectories(d);
 					

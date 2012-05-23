@@ -1,5 +1,6 @@
-// programs.xe.cx Bildverkleinerer: Resizes images
-// Copyright (C) 2010  Michael Schwarz
+// mbscWare Image Resizer: Resizes images
+// German version called "mbscWare Bildverkleinerer"
+// Copyright (C) 2010-2012  Michael Schwarz
 // 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
