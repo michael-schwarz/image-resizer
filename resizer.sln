@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
-# SharpDevelop 4.0.0.7070
+# SharpDevelop 4.2.0.8783
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "resizer", "resizer.csproj", "{9EA3EFB7-A19E-4DD6-909E-2B2B5018D5FB}"
 EndProject
 Global

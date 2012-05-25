@@ -23,6 +23,8 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Media;
 using System.Threading;
+using System.Globalization;
+using System.Resources;
 
 namespace resizer
 {
@@ -48,7 +50,7 @@ namespace resizer
 			this.percent.Checked = true;
 			this.auto_height.Checked = true;
 			this.comboBox1.SelectedIndex = 0;
-			language_support(0);
+			assignNames();
 
 					
 		}
@@ -429,37 +431,35 @@ namespace resizer
 		
 		}
 		
-		void language_support(int lang)
+		void assignNames()
 		{
-			if(lang == 0)
-			{
-				this.single_file.Text = "Eine einzelne Datei verkleinern";
-				this.directory.Text = "Alle Dateien in einem Verzeichnis verkleinern";
-				this.include_subdirs.Text = "Unterverzeichnisse mit einbeziehen";
-				this.browse_directory.Text = "Durchsuchen";
-				this.browse_single.Text = "Durchsuchen";
-				this.input.Text = "Quelldateien";
-				this.resizing.Text = "Gewünschte Größe";
-				this.percent.Text = "Prozentual";
-				this.fix.Text ="Absolut";
-				this.auto.Text ="Seitenverhältnisse beibehalten";
-				this.auto_width.Text = "Breite angleichen";
-				this.auto_height.Text = "Höhe angelichen";
-				this.keep_ratio.Text = "Eine Seitenlänge automatisch angleichen";
-				this.output.Text = "Ausgabeoptionen";
-				this.add_prefix.Text = "Dem Dateinamen Folgendes vorstellen";
-				this.new_subfolder.Text = "Einen neuen Unterordner verwenden";
-				this.use_same_type.Text = "Dateiformat beibehalten";
-				this.label7.Text = "Zu verwendendes Format";
-				this.label6.Text = "Der eingegebene Wert enthält für einen Dateinamen nicht zulässige Zeichen.";
-				this.ok.Text = "Bilder verkleinern";
-				this.label9.Text = "Verkleinert:";
-				this.Text = "programs.xe.cx Bildverkleinerer";
-				this.linkLabel1.Text = "Über";
-				this.label10.Text = "programs.xe.cx Bildverkleinerer (GNU GPL v3 or later)";
-			}
+			ResourceManager resourceManager = new ResourceManager ("resizer.language",GetType ().Assembly);
 			
-			
+			this.single_file.Text = (string)resourceManager.GetObject("single_file");
+			this.directory.Text = (string)resourceManager.GetObject("all_in_directory");
+			this.include_subdirs.Text = (string)resourceManager.GetObject("include_subdirs");
+			this.browse_directory.Text = (string)resourceManager.GetObject("browse");
+			this.browse_single.Text = (string)resourceManager.GetObject("browse");
+			this.input.Text = (string)resourceManager.GetObject("source_file");
+			this.resizing.Text = (string)resourceManager.GetObject("wanted_size");
+			this.percent.Text = (string)resourceManager.GetObject("percent");
+			this.fix.Text = (string)resourceManager.GetObject("fix");
+			this.auto.Text = (string)resourceManager.GetObject("keep_ratio");
+			this.auto_width.Text = (string)resourceManager.GetObject("auto_width");
+			this.auto_height.Text = (string)resourceManager.GetObject("auto_height");
+			this.keep_ratio.Text = (string)resourceManager.GetObject("auto_one_dimension");
+			this.output.Text = (string)resourceManager.GetObject("output_options");
+			this.add_prefix.Text = (string)resourceManager.GetObject("add_prefix");
+			this.new_subfolder.Text = (string)resourceManager.GetObject("use_new_subfolder");
+			this.use_same_type.Text = (string)resourceManager.GetObject("keep_format");
+			this.label7.Text = (string)resourceManager.GetObject("format_to_use");
+			this.label6.Text = (string)resourceManager.GetObject("error_invalid_characters");
+			this.ok.Text = (string)resourceManager.GetObject("resize");
+			this.label9.Text = (string)resourceManager.GetObject("resized");
+			this.Text = (string)resourceManager.GetObject("program_name");
+			this.linkLabel1.Text = (string)resourceManager.GetObject("about");
+			this.label10.Text = (string)resourceManager.GetObject("name_and_license");
+
 		}
 		
 		void Panel3VisibleChanged(object sender, EventArgs e)

@@ -63,6 +63,8 @@
     <EmbeddedResource Include="about_st.resx">
       <DependentUpon>about_st.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="language.de.resx" />
+    <EmbeddedResource Include="language.resx" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
