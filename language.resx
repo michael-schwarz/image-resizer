@@ -169,7 +169,7 @@
     <value>Desired format</value>
   </data>
   <data name="error_invalid_characters" xml:space="preserve">
-    <value>This filename contains characters that are not allowed for filenames</value>
+    <value>This filename / path contains characters that are not allowed for filenames.</value>
   </data>
   <data name="resize" xml:space="preserve">
     <value>Resize images</value>
@@ -185,5 +185,20 @@
   </data>
   <data name="name_and_license" xml:space="preserve">
     <value>mbscWare Image Resizer (GNU GPL v3 or later)</value>
+  </data>
+  <data name="error" xml:space="preserve">
+    <value>Error !</value>
+  </data>
+  <data name="error_percent_not_int" xml:space="preserve">
+    <value>The percentage must be a number.</value>
+  </data>
+  <data name="error_width_height_not_int" xml:space="preserve">
+    <value>Width and height must be numbers.</value>
+  </data>
+  <data name="error_file_not_found" xml:space="preserve">
+    <value>This file could not be found.</value>
+  </data>
+  <data name="error_folder_not_found" xml:space="preserve">
+    <value>This folder could not be found.</value>
   </data>
 </root>
