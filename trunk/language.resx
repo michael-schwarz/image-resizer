@@ -216,4 +216,7 @@
   <data name="resizing_failed_1" xml:space="preserve">
     <value>The file </value>
   </data>
+  <data name="choose_at_least_prefix_or_folder" xml:space="preserve">
+    <value>You need to at least enable saving in a new folder or adding a prefix.</value>
+  </data>
 </root>
