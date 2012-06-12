@@ -118,74 +118,72 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="single_file" xml:space="preserve">
-    <value>Eine einzelne Datei verkleinern
-</value>
+    <value>Resize a single file</value>
   </data>
   <data name="all_in_directory" xml:space="preserve">
-    <value>Alle Dateien in einem Verzeichnis verkleinern</value>
+    <value>Resize all pictures in a folder</value>
   </data>
   <data name="include_subdirs" xml:space="preserve">
-    <value>Unterverzeichnisse mit einbeziehen</value>
+    <value>Include subfolders</value>
   </data>
   <data name="browse" xml:space="preserve">
-    <value>Durchsuchen</value>
+    <value>Browse</value>
   </data>
   <data name="source_file" xml:space="preserve">
-    <value>Quelldatei</value>
+    <value>Source file</value>
   </data>
   <data name="wanted_size" xml:space="preserve">
-    <value>Gewünschte Größe</value>
+    <value>Desired size</value>
   </data>
   <data name="percent" xml:space="preserve">
-    <value>Prozentual</value>
+    <value>Percentage</value>
   </data>
   <data name="fix" xml:space="preserve">
-    <value>Absolut</value>
+    <value>Fixed size</value>
   </data>
   <data name="keep_ratio" xml:space="preserve">
-    <value>Seitenverhältnisse beibehalten</value>
+    <value>Keep ratio</value>
   </data>
   <data name="auto_width" xml:space="preserve">
-    <value>Breite angleichen</value>
+    <value>Match width to height</value>
   </data>
   <data name="auto_height" xml:space="preserve">
-    <value>Höhe angleichen</value>
+    <value>Mathc height to width</value>
   </data>
   <data name="auto_one_dimension" xml:space="preserve">
-    <value>Eine Seitenlänge automatisch angleichen</value>
+    <value>Match one side automatically</value>
   </data>
   <data name="output_options" xml:space="preserve">
-    <value>Ausgabeoptionen</value>
+    <value>Output options</value>
   </data>
   <data name="add_prefix" xml:space="preserve">
-    <value>Dem Dateinamen Folgendes vorstellen</value>
+    <value>Use this prefix</value>
   </data>
   <data name="use_new_subfolder" xml:space="preserve">
-    <value>Einen neuen Unterordner verwenden</value>
+    <value>Use a new subfolder</value>
   </data>
   <data name="keep_format" xml:space="preserve">
-    <value>Dateiformat beibehalten</value>
+    <value>Keep fileformat</value>
   </data>
   <data name="format_to_use" xml:space="preserve">
-    <value>Zu verwendendes Format</value>
+    <value>Desired format</value>
   </data>
   <data name="error_invalid_characters" xml:space="preserve">
-    <value>Der eingegebene Wert enthält für einen Dateinamen nicht zulässige Zeichen.</value>
+    <value>This filename contains characters that are not allowed for filenames</value>
   </data>
   <data name="resize" xml:space="preserve">
-    <value>Bilder verkleinern</value>
+    <value>Resize images</value>
   </data>
   <data name="resized" xml:space="preserve">
-    <value>Verkleinert:</value>
+    <value>Resized:</value>
   </data>
   <data name="program_name" xml:space="preserve">
-    <value>programs.xe.cx Bildverkleinerer</value>
+    <value>mbscWare Image Resizer</value>
   </data>
   <data name="about" xml:space="preserve">
-    <value>Über
-</value>
+    <value>About</value>
   </data>
   <data name="name_and_license" xml:space="preserve">
-    <value>programs.xe.cx Bildverkleinerer (GNU GPL v3 or later)</value>
+    <value>mbscWare Image Resizer (GNU GPL v3 or later)</value>
   </data>
 </root>
