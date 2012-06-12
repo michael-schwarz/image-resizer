@@ -202,4 +202,7 @@
   <data name="error_folder_not_found" xml:space="preserve">
     <value>Dieses Verzeichnis konnte nicht gefunden werden.</value>
   </data>
+  <data name="jpeg_quality" xml:space="preserve">
+    <value>JPEG Qualität</value>
+  </data>
 </root>

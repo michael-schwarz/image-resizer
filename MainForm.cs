@@ -415,6 +415,20 @@ namespace resizer
 		{
 			this.comboBox1.Visible = !use_same_type.Checked;
 			this.label7.Visible = !use_same_type.Checked;
+			
+			if(use_same_type.Checked)
+			{
+				this.jpeg_quality.Visible = false;
+				this.trackBar1.Visible = false;
+				this.label11.Visible = false;
+			}
+			else if(comboBox1.SelectedIndex == 1)
+			{
+
+				this.jpeg_quality.Visible = true;
+				this.trackBar1.Visible = true;
+				this.label11.Visible = true;
+			}
 		}
 		
 		void TextBox1TextChanged(object sender, EventArgs e)
@@ -459,7 +473,7 @@ namespace resizer
 			this.Text = (string)resourceManager.GetObject("program_name");
 			this.linkLabel1.Text = (string)resourceManager.GetObject("about");
 			this.label10.Text = (string)resourceManager.GetObject("name_and_license");
-
+			this.jpeg_quality.Text = (string)resourceManager.GetObject("jpeg_quality");
 		}
 		
 		void Panel3VisibleChanged(object sender, EventArgs e)
@@ -549,10 +563,6 @@ namespace resizer
 		void BackgroundWorker1DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
 		{
 			bool everythingOK = true;
-			
-			
-			this.single_file.Text = ;
-			
 			
 			if(this.percent.Checked)
 			{
@@ -664,8 +674,20 @@ namespace resizer
 			new about_st().ShowDialog();
 		}
 
+	
 		
+		void ComboBox1SelectedIndexChanged(object sender, EventArgs e)
+		{
+			bool v = (comboBox1.SelectedIndex == 1);
 
-
+			this.jpeg_quality.Visible = v;
+			this.trackBar1.Visible = v;
+			this.label11.Visible = v;
+		}
+		
+		void TrackBar1Scroll(object sender, EventArgs e)
+		{
+			this.label11.Text = trackBar1.Value.ToString();
+		}
 	}
 }
