@@ -205,4 +205,16 @@
   <data name="jpeg_quality" xml:space="preserve">
     <value>JPEG Qualität</value>
   </data>
+  <data name="error_acessing_file_1" xml:space="preserve">
+    <value>Fehler beim Dateizugriff.\\r\\nDatei unter </value>
+  </data>
+  <data name="error_acessing_file_2" xml:space="preserve">
+    <value> konnte nicht verkleinert werden.</value>
+  </data>
+  <data name="resizing_failed_1" xml:space="preserve">
+    <value>Die Datei unter </value>
+  </data>
+  <data name="resizing_failed_2" xml:space="preserve">
+    <value> konnte nicht verkleinert werden.</value>
+  </data>
 </root>

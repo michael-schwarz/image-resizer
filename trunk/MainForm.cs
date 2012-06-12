@@ -237,7 +237,7 @@ namespace resizer
 						
 						if(!this.keep_ratio.Checked)
 							{
-								imgResize.resize(i,o,Convert.ToInt32(width.Text),Convert.ToInt32(height.Text),f);
+								imgResize.resize(i,o,Convert.ToInt32(width.Text),Convert.ToInt32(height.Text),f,this.trackBar1.Value);
 							}
 						else
 							{
@@ -306,12 +306,18 @@ namespace resizer
 			}
 			catch(IOException)
 			{
-				MessageBox.Show("Fehler beim Dateizugriff.\\r\\nDatei unter " + i +" konnte nicht verkleinert werden.","Fehler",MessageBoxButtons.OK,MessageBoxIcon.Error);
+				ResourceManager resourceManager = new ResourceManager ("resizer.language",GetType ().Assembly);
+
+			
+				MessageBox.Show((string)resourceManager.GetObject("error_acessing_file_1") + i + (string)resourceManager.GetObject("error_acessing_file_2"),(string)resourceManager.GetObject("error"),MessageBoxButtons.OK,MessageBoxIcon.Error);
 			}
 			
 			catch(Exception)
 			{
-				MessageBox.Show("Die Datei unter " + i +" konnte nicht verkleinert werden.","Fehler",MessageBoxButtons.OK,MessageBoxIcon.Error);
+				ResourceManager resourceManager = new ResourceManager ("resizer.language",GetType ().Assembly);
+
+			
+				MessageBox.Show((string)resourceManager.GetObject("resizing_failed__2") + i + (string)resourceManager.GetObject("resizing_failed__2"),(string)resourceManager.GetObject("error"),MessageBoxButtons.OK,MessageBoxIcon.Error);
 			}
 		}
 		
