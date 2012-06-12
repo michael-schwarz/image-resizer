@@ -508,11 +508,53 @@ namespace resizer
 			}
 		}
 		
+		/// <summary>
+		/// Shows a messageBox that tells the user what's wrong
+		/// </summary>
+		/// <param name="errorType">0: Percent not an int
+		/// 1: Width and/or height not an int
+		/// </param>
+		void showErrorMessage(int errorType)
+		{
+			ResourceManager resourceManager = new ResourceManager ("resizer.language",GetType ().Assembly);
+			
+			string message = "";
+			if(errorType == 0)
+			{
+				message = "error_percent_not_int";
+			}
+			else if(errorType == 1)
+			{
+				message = "error_width_height_not_int";
+			}
+			else if(errorType == 2)
+			{
+				message = "error_file_not_found";
+			}
+			else if(errorType == 3)
+			{
+				message = "error_folder_not_found";
+			}			
+			else
+			{
+				// Hopefully, will be notice before final release
+				throw new NotImplementedException("No such error number");
+			}
+			
+			MessageBox.Show((string)resourceManager.GetObject(message),(string)resourceManager.GetObject("error"),MessageBoxButtons.OK,MessageBoxIcon.Error);
+		}
+		
+		
+		
 		void BackgroundWorker1DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
 		{
 			bool everythingOK = true;
 			
-			if(this.percent.Checked == true)
+			
+			this.single_file.Text = ;
+			
+			
+			if(this.percent.Checked)
 			{
 				try
 				{
@@ -521,7 +563,7 @@ namespace resizer
 				catch(Exception)
 				{
 					everythingOK = false;
-					MessageBox.Show("Der Prozentwert ist keine Zahl.","Fehler!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+					showErrorMessage(0);
 				}
 			}
 			else
@@ -541,7 +583,7 @@ namespace resizer
 				catch(Exception)
 				{
 					everythingOK = false;
-					MessageBox.Show("Einer der Werte für Breite / Höhe ist keine ganze Zahl.","Fehler!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+					showErrorMessage(1);
 				}
 			}
 			
@@ -557,7 +599,7 @@ namespace resizer
 						  }
 						else
 						  {
-						 	MessageBox.Show("Diese Datei konnte nicht gefunden werden.","Fehler!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+						 	showErrorMessage(2);
 						  }
 					}
 					
@@ -569,7 +611,7 @@ namespace resizer
 							}
 						else
 						 	{
-						 		MessageBox.Show("Dieses Verzeichnis konnte nicht gefunden werden.","Fehler!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+						 		showErrorMessage(3);
 						 	}
 					}
 				}

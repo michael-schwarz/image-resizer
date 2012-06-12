@@ -130,7 +130,7 @@
     <value>Unterverzeichnisse mit einbeziehen</value>
   </data>
   <data name="error_invalid_characters" xml:space="preserve">
-    <value>Der eingegebene Wert enthält für einen Dateinamen nicht zulässige Zeichen.</value>
+    <value>Der eingegebene Wert enthält für einen Dateinamen / Pfad nicht zulässige Zeichen.</value>
   </data>
   <data name="resized" xml:space="preserve">
     <value>Verkleinert:</value>
@@ -155,7 +155,7 @@
     <value>Über</value>
   </data>
   <data name="program_name" xml:space="preserve">
-    <value>programs.xe.cx Bildverkleinerer</value>
+    <value>mbscWare Bildverkleinerer</value>
   </data>
   <data name="keep_ratio" xml:space="preserve">
     <value>Seitenverhältnisse beibehalten</value>
@@ -176,7 +176,7 @@
     <value>Dateiformat beibehalten</value>
   </data>
   <data name="name_and_license" xml:space="preserve">
-    <value>programs.xe.cx Bildverkleinerer (GNU GPL v3 or later)</value>
+    <value>mbscWare Bildverkleinerer (GNU GPL v3 or later)</value>
   </data>
   <data name="source_file" xml:space="preserve">
     <value>Quelldatei</value>
@@ -186,5 +186,20 @@
   </data>
   <data name="auto_one_dimension" xml:space="preserve">
     <value>Eine Seitenlänge automatisch angleichen</value>
+  </data>
+  <data name="error" xml:space="preserve">
+    <value>Fehler !</value>
+  </data>
+  <data name="error_percent_not_int" xml:space="preserve">
+    <value>Der Prozentwert ist keine Zahl.</value>
+  </data>
+  <data name="error_width_height_not_int" xml:space="preserve">
+    <value>Einer der Werte für Breite / Höhe ist keine ganze Zahl.</value>
+  </data>
+  <data name="error_file_not_found" xml:space="preserve">
+    <value>Diese Datei konnte nicht gefunden werden.</value>
+  </data>
+  <data name="error_folder_not_found" xml:space="preserve">
+    <value>Dieses Verzeichnis konnte nicht gefunden werden.</value>
   </data>
 </root>
