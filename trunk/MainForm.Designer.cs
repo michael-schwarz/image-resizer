@@ -71,6 +71,9 @@ namespace resizer
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.ok = new System.Windows.Forms.Button();
 			this.output = new System.Windows.Forms.GroupBox();
+			this.label11 = new System.Windows.Forms.Label();
+			this.trackBar1 = new System.Windows.Forms.TrackBar();
+			this.jpeg_quality = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.use_same_type = new System.Windows.Forms.CheckBox();
@@ -94,6 +97,7 @@ namespace resizer
 			this.panel3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.output.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
 			this.panel4.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -242,8 +246,8 @@ namespace resizer
 			this.height.Size = new System.Drawing.Size(49, 20);
 			this.height.TabIndex = 7;
 			this.height.Visible = false;
-			this.height.TextChanged += new System.EventHandler(this.WidthTextChanged);
 			this.height.EnabledChanged += new System.EventHandler(this.HeightEnabledChanged);
+			this.height.TextChanged += new System.EventHandler(this.WidthTextChanged);
 			// 
 			// pictureBox1
 			// 
@@ -316,8 +320,8 @@ namespace resizer
 			this.width.Name = "width";
 			this.width.Size = new System.Drawing.Size(49, 20);
 			this.width.TabIndex = 9;
-			this.width.TextChanged += new System.EventHandler(this.WidthTextChanged);
 			this.width.EnabledChanged += new System.EventHandler(this.WidthEnabledChanged);
+			this.width.TextChanged += new System.EventHandler(this.WidthTextChanged);
 			// 
 			// label3
 			// 
@@ -407,7 +411,7 @@ namespace resizer
 			// ok
 			// 
 			this.ok.Enabled = false;
-			this.ok.Location = new System.Drawing.Point(472, 511);
+			this.ok.Location = new System.Drawing.Point(472, 550);
 			this.ok.Name = "ok";
 			this.ok.Size = new System.Drawing.Size(120, 23);
 			this.ok.TabIndex = 8;
@@ -417,6 +421,9 @@ namespace resizer
 			// 
 			// output
 			// 
+			this.output.Controls.Add(this.label11);
+			this.output.Controls.Add(this.trackBar1);
+			this.output.Controls.Add(this.jpeg_quality);
 			this.output.Controls.Add(this.label7);
 			this.output.Controls.Add(this.panel3);
 			this.output.Controls.Add(this.comboBox1);
@@ -427,10 +434,44 @@ namespace resizer
 			this.output.Controls.Add(this.add_prefix);
 			this.output.Location = new System.Drawing.Point(12, 375);
 			this.output.Name = "output";
-			this.output.Size = new System.Drawing.Size(580, 130);
+			this.output.Size = new System.Drawing.Size(580, 165);
 			this.output.TabIndex = 13;
 			this.output.TabStop = false;
 			this.output.Text = "output";
+			// 
+			// label11
+			// 
+			this.label11.Location = new System.Drawing.Point(532, 129);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(31, 22);
+			this.label11.TabIndex = 10;
+			this.label11.Text = "100";
+			this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.label11.Visible = false;
+			// 
+			// trackBar1
+			// 
+			this.trackBar1.AutoSize = false;
+			this.trackBar1.Cursor = System.Windows.Forms.Cursors.Default;
+			this.trackBar1.Location = new System.Drawing.Point(300, 129);
+			this.trackBar1.Maximum = 100;
+			this.trackBar1.Minimum = 1;
+			this.trackBar1.Name = "trackBar1";
+			this.trackBar1.Size = new System.Drawing.Size(231, 27);
+			this.trackBar1.TabIndex = 9;
+			this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
+			this.trackBar1.Value = 100;
+			this.trackBar1.Visible = false;
+			this.trackBar1.Scroll += new System.EventHandler(this.TrackBar1Scroll);
+			// 
+			// jpeg_quality
+			// 
+			this.jpeg_quality.Location = new System.Drawing.Point(200, 134);
+			this.jpeg_quality.Name = "jpeg_quality";
+			this.jpeg_quality.Size = new System.Drawing.Size(100, 23);
+			this.jpeg_quality.TabIndex = 8;
+			this.jpeg_quality.Text = "jpeg_quality";
+			this.jpeg_quality.Visible = false;
 			// 
 			// label7
 			// 
@@ -456,6 +497,7 @@ namespace resizer
 			this.comboBox1.Size = new System.Drawing.Size(64, 21);
 			this.comboBox1.TabIndex = 5;
 			this.comboBox1.Visible = false;
+			this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1SelectedIndexChanged);
 			// 
 			// use_same_type
 			// 
@@ -522,14 +564,14 @@ namespace resizer
 			// 
 			// progressBar1
 			// 
-			this.progressBar1.Location = new System.Drawing.Point(12, 511);
+			this.progressBar1.Location = new System.Drawing.Point(12, 550);
 			this.progressBar1.Name = "progressBar1";
 			this.progressBar1.Size = new System.Drawing.Size(228, 23);
 			this.progressBar1.TabIndex = 14;
 			// 
 			// label8
 			// 
-			this.label8.Location = new System.Drawing.Point(318, 516);
+			this.label8.Location = new System.Drawing.Point(318, 555);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(45, 23);
 			this.label8.TabIndex = 8;
@@ -537,7 +579,7 @@ namespace resizer
 			// 
 			// label9
 			// 
-			this.label9.Location = new System.Drawing.Point(246, 516);
+			this.label9.Location = new System.Drawing.Point(246, 555);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(66, 23);
 			this.label9.TabIndex = 15;
@@ -559,9 +601,10 @@ namespace resizer
 			this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.panel4.Controls.Add(this.label10);
 			this.panel4.Controls.Add(this.linkLabel1);
-			this.panel4.Location = new System.Drawing.Point(0, 540);
+			this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.panel4.Location = new System.Drawing.Point(0, 579);
 			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(603, 25);
+			this.panel4.Size = new System.Drawing.Size(601, 25);
 			this.panel4.TabIndex = 17;
 			// 
 			// label10
@@ -578,7 +621,7 @@ namespace resizer
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.ClientSize = new System.Drawing.Size(601, 561);
+			this.ClientSize = new System.Drawing.Size(601, 604);
 			this.Controls.Add(this.panel4);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.label8);
@@ -605,9 +648,13 @@ namespace resizer
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			this.output.ResumeLayout(false);
 			this.output.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
 			this.panel4.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.Label jpeg_quality;
+		private System.Windows.Forms.TrackBar trackBar1;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Panel panel4;
 		private System.Windows.Forms.LinkLabel linkLabel1;
