@@ -26,6 +26,9 @@ using System.Threading;
 using System.Globalization;
 using System.Resources;
 
+//TODO: make sure files in subolder are not overridden if target folder has got the same name as an existing folder
+//TODO: platform wieder uaf jeder prozessor
+
 namespace resizer
 {
 	/// <summary>
@@ -306,30 +309,35 @@ namespace resizer
 			}
 			catch(IOException)
 			{
-				ResourceManager resourceManager = new ResourceManager ("resizer.language",GetType ().Assembly);
-
-			
-				MessageBox.Show((string)resourceManager.GetObject("error_acessing_file_1") + i + (string)resourceManager.GetObject("error_acessing_file_2"),(string)resourceManager.GetObject("error"),MessageBoxButtons.OK,MessageBoxIcon.Error);
+				ResourceManager resourceManager = new ResourceManager ("resizer.language",GetType ().Assembly);			
+				MessageBox.Show("" + ((string)resourceManager.GetObject("error_acessing_file_1")) + i + ((string)resourceManager.GetObject("error_acessing_file_2")) + "",(string)resourceManager.GetObject("error"),MessageBoxButtons.OK,MessageBoxIcon.Error);
 			}
 			
 			catch(Exception)
 			{
-				ResourceManager resourceManager = new ResourceManager ("resizer.language",GetType ().Assembly);
-
-			
-				MessageBox.Show((string)resourceManager.GetObject("resizing_failed__2") + i + (string)resourceManager.GetObject("resizing_failed__2"),(string)resourceManager.GetObject("error"),MessageBoxButtons.OK,MessageBoxIcon.Error);
+				ResourceManager resourceManager = new ResourceManager ("resizer.language",GetType ().Assembly);			
+				MessageBox.Show("" + ((string)resourceManager.GetObject("resizing_failed_1")) + i + ((string)resourceManager.GetObject("resizing_failed_2")) + "",(string)resourceManager.GetObject("error"),MessageBoxButtons.OK,MessageBoxIcon.Error);
 			}
 		}
 		
 		void OkClick(object sender, EventArgs e)
 		{		
-			this.label8.Text = "0";
-			backgroundWorker1.RunWorkerAsync();
-			this.output.Enabled = false;
-			this.input.Enabled = false;
-			this.resizing.Enabled = false;
-			this.ok.Enabled = false;
-		}
+			if(add_prefix.Checked || new_subfolder.Checked)
+			{	
+				this.label8.Text = "0";
+				backgroundWorker1.RunWorkerAsync();
+				this.output.Enabled = false;
+				this.input.Enabled = false;
+				this.resizing.Enabled = false;
+				this.ok.Enabled = false;
+			}
+			else
+			{
+				ResourceManager resourceManager = new ResourceManager ("resizer.language",GetType ().Assembly);			
+				MessageBox.Show(((string)resourceManager.GetObject("choose_at_least_prefix_or_folder")),(string)resourceManager.GetObject("error"),MessageBoxButtons.OK,MessageBoxIcon.Error);
+
+			}
+		}	
 		
 		void resizeDirectory(string d)
 		{

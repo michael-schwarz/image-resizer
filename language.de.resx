@@ -217,4 +217,7 @@
   <data name="resizing_failed_2" xml:space="preserve">
     <value> konnte nicht verkleinert werden.</value>
   </data>
+  <data name="choose_at_least_prefix_or_folder" xml:space="preserve">
+    <value>Es  muss mindestens die Speicherung in einen neuen Unterodner oder das Hinzufügen eines Präfixes aktiviert sein.</value>
+  </data>
 </root>
