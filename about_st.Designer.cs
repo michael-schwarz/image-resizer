@@ -101,7 +101,7 @@ namespace resizer
 			this.linkLabel1.TabIndex = 11;
 			this.linkLabel1.TabStop = true;
 			this.linkLabel1.Tag = "";
-			this.linkLabel1.Text = "Hersteller-Seite";
+			this.linkLabel1.Text = "Website";
 			this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1LinkClicked);
 			// 
 			// label3

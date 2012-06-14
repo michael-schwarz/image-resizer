@@ -219,4 +219,22 @@
   <data name="choose_at_least_prefix_or_folder" xml:space="preserve">
     <value>You need to at least enable saving in a new folder or adding a prefix.</value>
   </data>
+  <data name="about_image_resizer" xml:space="preserve">
+    <value>About mbscWare Image Resizer</value>
+  </data>
+  <data name="open_source_message" xml:space="preserve">
+    <value>This software is Open Source software. For more infromation, see box below.
+
+Updates and solutions are available at en.mbscware.com</value>
+  </data>
+  <data name="icon_copyright" xml:space="preserve">
+    <value>Alle icons are from the Crystal Project, released by Everaldo Coelho SITE under the LGPL.
+(Information und legal code at: http://www.gnu.org/licenses/lgpl.html )</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>Version:</value>
+  </data>
+  <data name="support_uri" xml:space="preserve">
+    <value>http://en.mbscware.com/programs/imageResizer/</value>
+  </data>
 </root>

@@ -18,6 +18,8 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Resources;
 
 namespace resizer
 {
@@ -29,11 +31,20 @@ namespace resizer
 			InitializeComponent();
 			textBox2.Text = Application.ProductVersion;
 
+			
+			
+			ResourceManager resourceManager = new ResourceManager ("resizer.language",GetType ().Assembly);
+			
+			this.Text = (string)resourceManager.GetObject("about_image_resizer");
+			this.label3.Text = (string)resourceManager.GetObject("open_source_message");
+			this.label2.Text = (string)resourceManager.GetObject("icon_copyright");
+			this.label5.Text = (string)resourceManager.GetObject("version");
 		}
 		
 		void LinkLabel1LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			System.Diagnostics.Process.Start("http://programs.xe.cx/");			
+			ResourceManager resourceManager = new ResourceManager ("resizer.language",GetType ().Assembly);
+			System.Diagnostics.Process.Start((string)resourceManager.GetObject("support_uri"));
 		}
 	}
 }

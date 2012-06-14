@@ -220,4 +220,22 @@
   <data name="choose_at_least_prefix_or_folder" xml:space="preserve">
     <value>Es  muss mindestens die Speicherung in einen neuen Unterodner oder das Hinzufügen eines Präfixes aktiviert sein.</value>
   </data>
+  <data name="about_image_resizer" xml:space="preserve">
+    <value>Über mbscWare Bildverkleinerer</value>
+  </data>
+  <data name="open_source_message" xml:space="preserve">
+    <value>Dieses Programm ist Open Source nähere Informationen dazu in der unten befindlichen Box.
+
+Updates und Problemlösungen sind auf der Herstellerseite mbscware.com verfügbar.</value>
+  </data>
+  <data name="icon_copyright" xml:space="preserve">
+    <value>Die in diesem Programm enthaltene Icons stammen aus dem Crystal Project, veröffentlich von Everaldo Coelho SITE unter der LGPL-Lizenz
+(Infos und Lizenzvertrag unter: http://www.gnu.org/licenses/lgpl.html )</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>Versionsnnummer</value>
+  </data>
+  <data name="support_uri" xml:space="preserve">
+    <value>http://mbscware.com/programme/bildverkleinerer/</value>
+  </data>
 </root>
