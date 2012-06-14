@@ -91,7 +91,7 @@ namespace resizer
 		/// <param name="format">new ImageFormat</param>
 		public static void resize(string input,string output,double percent,ImageFormat format)
 		{
-			resize(input,output,percent,format);
+			resize(input,output,percent,format,-1);
 		}
 		
 		/// <summary>
@@ -135,11 +135,11 @@ namespace resizer
 		/// <param name="quality">jpeg-quality between 0 and 100; -1 to use standard values or if image is not to be saved as jpeg</param>
 		public static void resize(string input,string output,int width,int height,long quality)
 		{
-			Image picture = Image.FromFile(input);
+			Image picture = openImage(input);
 			
 			ImageFormat format = picture.RawFormat;
 			
-			saveResizedPicture(resize_do(picture,width,height),output,format,quality);		
+			saveResizedPicture(resize_do(picture,width,height),output,format,quality);			
 		}
 		
 		
@@ -152,7 +152,7 @@ namespace resizer
 		/// <param name="quality">jpeg-quality between 0 and 100; -1 to use standard values or if image is not to be saved as jpeg</param>
 		public static void resize(string input,string output,double percent,long quality)
 		{
-			Image picture = Image.FromFile(input);
+			Image picture = openImage(input);
 			
 			int width = Convert.ToInt32(picture.Size.Width*percent);
 			int height = Convert.ToInt32(picture.Size.Height*percent);
@@ -174,7 +174,7 @@ namespace resizer
 		/// <param name="quality">jpeg-quality between 0 and 100; -1 to use standard values or if image is not to be saved as jpeg</param>
 		public static void resize(string input,string output,double percent,ImageFormat format,long quality)
 		{
-			Image picture = Image.FromFile(input);
+			Image picture = openImage(input);
 			
 			int width = Convert.ToInt32(picture.Size.Width*percent);
 			int height = Convert.ToInt32(picture.Size.Height*percent);
@@ -195,7 +195,7 @@ namespace resizer
 		/// <param name="quality">jpeg-quality between 0 and 100; -1 to use standard values or if image is not to be saved as jpeg</param>
 		public static void resize(string input,string output,int size1,bool size_type,long quality)
 		{
-			Image picture = Image.FromFile(input);
+			Image picture = openImage(input);
 			
 			ImageFormat format = picture.RawFormat;
 			
@@ -233,7 +233,7 @@ namespace resizer
 		/// <param name="quality">jpeg-quality between 0 and 100; -1 to use standard values or if image is not to be saved as jpeg</param>
 		public static void resize(string input,string output,int size1,bool size_type,ImageFormat format,long quality)
 		{
-			Image picture = Image.FromFile(input);
+			Image picture = openImage(input);
 			
 			int width = 0;
 			int height = 0;
@@ -257,6 +257,15 @@ namespace resizer
 		
 		
 		#region Private methods that do the actual resizing and saving
+		
+		
+		private static Image openImage(string filename)
+		{
+			byte[] bytes = System.IO.File.ReadAllBytes(filename);
+			System.IO.MemoryStream ms = new System.IO.MemoryStream(bytes);
+			return Image.FromStream(ms);
+		}
+		
 		
 		/// <summary>
 		/// Internal method that does the saving of the file
@@ -286,7 +295,7 @@ namespace resizer
 				i.Save(file,enc,encParams);
 			}
 				
-			
+			i.Dispose();
 		}
 		
 		/// <summary>

@@ -205,24 +205,34 @@ namespace resizer
 			{
 				ImageFormat f = ImageFormat.Jpeg;
 				
-				if(this.comboBox1.SelectedItem.ToString() == "PNG")
+				string selectedFormatString = "";
+				int quality = 100;
+				this.Invoke(new MethodInvoker(delegate() 
+				                              { 
+				                              	selectedFormatString = this.comboBox1.SelectedItem.ToString();
+												quality = trackBar1.Value;
+				                              }
+				           ));
+				
+				
+				if(selectedFormatString == "PNG")
 				{
 					f = ImageFormat.Png;
 				}
 		
-				if(this.comboBox1.SelectedItem.ToString() == "JPG")
+				if(selectedFormatString == "JPG")
 				{
 					f = ImageFormat.Jpeg;
 				}
-				if(this.comboBox1.SelectedItem.ToString() == "BMP")
+				if(selectedFormatString == "BMP")
 				{
 					f = ImageFormat.Bmp;
 				}
-				if(this.comboBox1.SelectedItem.ToString() == "TIFF")
+				if(selectedFormatString == "TIFF")
 				{
 					f = ImageFormat.Tiff;
 				}
-				if(this.comboBox1.SelectedItem.ToString() == "GIF")
+				if(selectedFormatString == "GIF")
 				{
 					f = ImageFormat.Gif;
 				}
@@ -232,7 +242,7 @@ namespace resizer
 				if(this.percent.Checked)
 					{
 						double p = Convert.ToDouble(this.percent_input.Text);
-						imgResize.resize(i,o,p/100,f);
+						imgResize.resize(i,o,p/100,f,quality);
 					}
 				else	
 					{
@@ -240,18 +250,18 @@ namespace resizer
 						
 						if(!this.keep_ratio.Checked)
 							{
-								imgResize.resize(i,o,Convert.ToInt32(width.Text),Convert.ToInt32(height.Text),f,this.trackBar1.Value);
+								imgResize.resize(i,o,Convert.ToInt32(width.Text),Convert.ToInt32(height.Text),f,quality);
 							}
 						else
 							{
 								if(this.auto_height.Checked)
 								{
-									imgResize.resize(i,o,Convert.ToInt32(width.Text),true,f);
+									imgResize.resize(i,o,Convert.ToInt32(width.Text),true,f,quality);
 								}
 								
 								else
 								{
-									imgResize.resize(i,o,Convert.ToInt32(height.Text),false,f);
+									imgResize.resize(i,o,Convert.ToInt32(height.Text),false,f,quality);
 								}
 							}
 					}
@@ -307,13 +317,13 @@ namespace resizer
 		    }
 
 			}
-			catch(IOException)
+			catch(IOException e)
 			{
 				ResourceManager resourceManager = new ResourceManager ("resizer.language",GetType ().Assembly);			
 				MessageBox.Show("" + ((string)resourceManager.GetObject("error_acessing_file_1")) + i + ((string)resourceManager.GetObject("error_acessing_file_2")) + "",(string)resourceManager.GetObject("error"),MessageBoxButtons.OK,MessageBoxIcon.Error);
 			}
 			
-			catch(Exception)
+			catch(Exception e)
 			{
 				ResourceManager resourceManager = new ResourceManager ("resizer.language",GetType ().Assembly);			
 				MessageBox.Show("" + ((string)resourceManager.GetObject("resizing_failed_1")) + i + ((string)resourceManager.GetObject("resizing_failed_2")) + "",(string)resourceManager.GetObject("error"),MessageBoxButtons.OK,MessageBoxIcon.Error);
