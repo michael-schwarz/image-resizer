@@ -26,8 +26,6 @@ using System.Threading;
 using System.Globalization;
 using System.Resources;
 
-//TODO: make sure files in subolder are not overridden if target folder has got the same name as an existing folder
-//TODO: platform wieder uaf jeder prozessor
 
 namespace resizer
 {
@@ -333,13 +331,13 @@ namespace resizer
 		    }
 
 			}
-			catch(IOException e)
+			catch(IOException)
 			{
 				ResourceManager resourceManager = new ResourceManager ("resizer.language",GetType ().Assembly);			
 				MessageBox.Show("" + ((string)resourceManager.GetObject("error_acessing_file_1")) + i + ((string)resourceManager.GetObject("error_acessing_file_2")) + "",(string)resourceManager.GetObject("error"),MessageBoxButtons.OK,MessageBoxIcon.Error);
 			}
 			
-			catch(Exception e)
+			catch(Exception)
 			{
 				ResourceManager resourceManager = new ResourceManager ("resizer.language",GetType ().Assembly);			
 				MessageBox.Show("" + ((string)resourceManager.GetObject("resizing_failed_1")) + i + ((string)resourceManager.GetObject("resizing_failed_2")) + "",(string)resourceManager.GetObject("error"),MessageBoxButtons.OK,MessageBoxIcon.Error);
