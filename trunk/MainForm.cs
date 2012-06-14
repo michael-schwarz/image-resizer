@@ -71,56 +71,63 @@ namespace resizer
 		}
 		
 		
-
+	/// <summary>
+	/// Builds the new path for the resized version
+	/// </summary>
+	/// <param name="old">path of the original version</param>
+	/// <returns>path where the resized version is to be stored</returns>
 		private string createNewPath(string old)
 		{
 			string filename = Path.GetFileName(old);
 			string path = Path.GetDirectoryName(old);
 			
+			
+			// Changes the extension if this is required
+			if(!this.use_same_type.Checked)
+			{
+				string ex = "";
+				string selectedFormatString = "";
+				this.Invoke(new MethodInvoker(delegate() 
+			                              { 
+			                              	selectedFormatString = this.comboBox1.SelectedItem.ToString();
+			                              }
+			           ));
+				
+				
+				if(selectedFormatString == "PNG")
+				{
+					ex = ".png";
+				}
+				if(selectedFormatString == "JPG")
+				{
+					ex = ".jpg";
+				}
+				if(selectedFormatString == "BMP")
+				{
+					ex = ".bmp";
+				}
+				if(selectedFormatString == "TIFF")
+				{
+					ex = ".tiff";
+				}
+				if(selectedFormatString== "GIF")
+				{
+					ex = ".gif";
+				}
+
+				filename = filename.Replace(Path.GetExtension(filename),ex);								
+			}
+			
+			
+			
+			
+			// Add prefix if selected
 			if(this.add_prefix.Checked)
 			{
-				if(!this.use_same_type.Checked)
-				{
-					string ex = "";
-					string selectedFormatString = "";
-					this.Invoke(new MethodInvoker(delegate() 
-				                              { 
-				                              	selectedFormatString = this.comboBox1.SelectedItem.ToString();
-				                              }
-				           ));
-					
-					
-					if(selectedFormatString == "PNG")
-					{
-						ex = ".png";
-					}
-
-					if(selectedFormatString == "JPG")
-					{
-						ex = ".jpg";
-					}
-					if(selectedFormatString == "BMP")
-					{
-						ex = ".bmp";
-					}
-					if(selectedFormatString == "TIFF")
-					{
-						ex = ".tiff";
-					}
-					if(selectedFormatString== "GIF")
-					{
-						ex = ".gif";
-					}
-
-					filename = filename.Replace(Path.GetExtension(filename),ex);
-					
-					
-				}
-				
-				
 				filename = String.Concat(textBox1.Text,filename);
 			}
 			
+			// Add new subfolder to path if required and return it
 			if(this.new_subfolder.Checked && this.textBox2.Text!= "")
 			{
 				string p = Path.Combine(String.Concat(path,Path.DirectorySeparatorChar.ToString(),this.textBox2.Text,Path.DirectorySeparatorChar.ToString()),filename);
@@ -135,6 +142,7 @@ namespace resizer
 			}
 			else
 			{
+				// rteurn path if no new subfolder needed to be added
 				return Path.Combine(path,filename);
 			}
 			
@@ -340,7 +348,7 @@ namespace resizer
 		
 		void OkClick(object sender, EventArgs e)
 		{		
-			if((add_prefix.Checked && !String.IsNullOrEmpty(textBox1.Text)) || (new_subfolder.Checked && && !String.IsNullOrEmpty(textBox2.Text)))
+			if((add_prefix.Checked && !String.IsNullOrEmpty(textBox1.Text)) || (new_subfolder.Checked && !String.IsNullOrEmpty(textBox2.Text)))
 			{	
 				this.label8.Text = "0";
 				backgroundWorker1.RunWorkerAsync();
