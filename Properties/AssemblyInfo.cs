@@ -9,14 +9,25 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("programs.xe.cx Bildverkleinerer")]
+#if GERMAN
+[assembly: AssemblyTitle("mbscWare Bildverkleinerer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("programs.xe.cx Bildverkleinerer")]
-[assembly: AssemblyCopyright("M. Schwarz (GNU GPL v3)")]
+[assembly: AssemblyCompany("mbscWare")]
+[assembly: AssemblyProduct("mbscWare Bildverkleinerer")]
+[assembly: AssemblyCopyright("2000-2012 (GNU GPL v3)")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+#else
+[assembly: AssemblyTitle("mbscWare Image Resizer")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("mbscWare")]
+[assembly: AssemblyProduct("mbscWare Image Resizer")]
+[assembly: AssemblyCopyright("2000-2012 (GNU GPL v3)")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+#endif
 
 // This sets the default COM visibility of types in the assembly to invisible.
 // If you need to expose a type to COM, use [ComVisible(true)] on that type.
@@ -28,4 +39,4 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can use the default the Revision and 
 // Build Numbers by using the '*' as shown below:
-[assembly: AssemblyVersion("1.0.1")]
+[assembly: AssemblyVersion("1.1.0")]
