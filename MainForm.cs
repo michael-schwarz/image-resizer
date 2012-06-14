@@ -70,6 +70,7 @@ namespace resizer
 			enabled_resizing = v;			
 		}
 		
+		
 
 		private string createNewPath(string old)
 		{
@@ -81,25 +82,32 @@ namespace resizer
 				if(!this.use_same_type.Checked)
 				{
 					string ex = "";
+					string selectedFormatString = "";
+					this.Invoke(new MethodInvoker(delegate() 
+				                              { 
+				                              	selectedFormatString = this.comboBox1.SelectedItem.ToString();
+				                              }
+				           ));
 					
-					if(this.comboBox1.SelectedItem.ToString() == "PNG")
+					
+					if(selectedFormatString == "PNG")
 					{
 						ex = ".png";
 					}
 
-					if(this.comboBox1.SelectedItem.ToString() == "JPG")
+					if(selectedFormatString == "JPG")
 					{
 						ex = ".jpg";
 					}
-					if(this.comboBox1.SelectedItem.ToString() == "BMP")
+					if(selectedFormatString == "BMP")
 					{
 						ex = ".bmp";
 					}
-					if(this.comboBox1.SelectedItem.ToString() == "TIFF")
+					if(selectedFormatString == "TIFF")
 					{
 						ex = ".tiff";
 					}
-					if(this.comboBox1.SelectedItem.ToString() == "GIF")
+					if(selectedFormatString== "GIF")
 					{
 						ex = ".gif";
 					}
@@ -332,7 +340,7 @@ namespace resizer
 		
 		void OkClick(object sender, EventArgs e)
 		{		
-			if(add_prefix.Checked || new_subfolder.Checked)
+			if((add_prefix.Checked && !String.IsNullOrEmpty(textBox1.Text)) || (new_subfolder.Checked && && !String.IsNullOrEmpty(textBox2.Text)))
 			{	
 				this.label8.Text = "0";
 				backgroundWorker1.RunWorkerAsync();
